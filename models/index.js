@@ -24,7 +24,7 @@ async function bootcamperLogin(profile) {
 async function getBootcamperFeedback(profile) {
   console.log(profile);
   const result = await query(
-    `SELECT * FROM feedback WHERE bootcamper_uuid = $1 AND type_of_task = $2 ;`,
+    `SELECT * FROM feedback WHERE bootcamper_uuid = $1 AND type_of_task = $2`,
     [profile.uuid, profile.type]
   );
   console.log(result.rows);

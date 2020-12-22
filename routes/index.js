@@ -57,10 +57,13 @@ router.get('/', async function (req, res, next) {
 
 // This is the bootcamper viewing the different types of feedback in different pages.
 
-router.get('/feedback', async function (req, res, next) {
+router.get('/feedback/:uuid/:taskType', async function (req, res, next) {
   try {
     console.log('retrieving feedback ...');
-    const feedbackRequest = req.body;
+    const feedbackRequest = {
+      uuid: req.params.uuid,
+      type: req.params.taskType,
+    };
     const result = await getBootcamperFeedback(feedbackRequest);
     res.json({ success: true, data: result });
     console.log('feedback retrieved');
