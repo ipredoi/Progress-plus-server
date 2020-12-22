@@ -1,7 +1,7 @@
-const { query } = require("../../index");
+const { query } = require('../../index');
 
 const sqlStatement = `
-DROP TABLE feedbacks
+DROP TABLE feedback
 ;`;
 
 async function dropTable() {

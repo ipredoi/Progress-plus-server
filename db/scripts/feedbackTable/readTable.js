@@ -1,8 +1,8 @@
-const { query } = require("../../index");
+const { query } = require('../../index');
 
 const sqlStatement = `
 SELECT *
-FROM feedbacks
+FROM feedback
 ;`;
 
 async function readTable() {

@@ -1,6 +1,6 @@
 const { query } = require('../../index');
 
-const sqlStatement = `CREATE TABLE feedbacks(
+const sqlStatement = `CREATE TABLE feedback(
     feedback_id SERIAL PRIMARY KEY,
     bootcamper_uuid TEXT,
     coach_name TEXT,

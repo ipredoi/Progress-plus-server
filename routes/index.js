@@ -6,6 +6,7 @@ const {
   bootcamperLogin,
   getBootcamperFeedback,
   postFeedback,
+  getAllFeedback,
 } = require('../models/index');
 
 // Bootcamper routes
@@ -124,6 +125,7 @@ router.post('/feedback', async function (req, res, next) {
   try {
     console.log('Posting feedback ...');
     const feedback = req.body;
+
     const result = await postFeedback(feedback);
     res.json({ success: true, data: result });
     console.log('Feedback posted');
@@ -136,11 +138,10 @@ router.post('/feedback', async function (req, res, next) {
 
 // request from the coaches to view all of the bootcamper data
 
-router.get('/feedbackcoach', async function (req, res, next) {
+router.get('/allbootcamperfeedback', async function (req, res, next) {
   try {
     console.log('retrieving all of the bootcamper feedback...');
-    const feedbackRequest = req.body;
-    const result = await getAllFeedback(feedbackRequest);
+    const result = await getAllFeedback();
     res.json({ success: true, data: result });
     console.log('all of the feedback retrieved');
   } catch (error) {

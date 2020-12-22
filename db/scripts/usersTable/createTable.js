@@ -3,7 +3,7 @@ const { query } = require('../../index');
 const sqlStatement = `CREATE TABLE users(
     uuid TEXT PRIMARY KEY,
     role TEXT,
-    bootcamp INT
+    cohort INT
 );`;
 
 async function createTable() {
