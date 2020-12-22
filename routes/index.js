@@ -1,13 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
+const {
+  createBootcamperProfile,
+  bootcamperLogin,
+  getBootcamperFeedback,
+  postFeedback,
+} = require('../models/index');
+
 // Bootcamper routes
 
 // 1. Create a profile with a post request
 
 // This is the bootcamper creating an account, this may not be needed??
 
-router.post('/create', async function (req, res, next) {
+router.post('/', async function (req, res, next) {
   try {
     console.log('Creating a bootcamper profile...');
     const profile = req.body;
@@ -23,7 +30,7 @@ router.post('/create', async function (req, res, next) {
 
 // This is the bootcamper logging in, will need to be changed??
 
-router.get('/login', async function (req, res, next) {
+router.get('/', async function (req, res, next) {
   try {
     console.log('Retrieving bootcamper profile ...');
     // not sure about the next line for using firsbase, will need to check later
@@ -67,35 +74,39 @@ router.get('/feedback', async function (req, res, next) {
 
 // the coaches creating an account, may not be needed??
 
-router.post('/createcoach', async function (req, res, next) {
-  try {
-    console.log('Creating a coach profile...');
-    const profile = req.body;
-    const result = await createCoachProfile(profile);
-    res.json({ success: true, data: result });
-    console.log('Coach profile created!');
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+//          NOT NEEDED
+
+// router.post('/createcoach', async function (req, res, next) {
+//   try {
+//     console.log('Creating a coach profile...');
+//     const profile = req.body;
+//     const result = await createCoachProfile(profile);
+//     res.json({ success: true, data: result });
+//     console.log('Coach profile created!');
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
 
 // 2. Coaches need to receive their profiles with a GET request
 
 // the coaches logging in??
 
-router.get('/logincoach', async function (req, res, next) {
-  try {
-    console.log('Retrieving coach profile ...');
-    // not sure about the next line for using firsbase, will need to check later
-    const userDetails = req.query;
-    //
-    const result = await coachLogin(userDetails);
-    res.json({ success: true, data: result });
-    console.log('Recieved coach profile');
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+//        NOT NEEDED
+
+// router.get('/logincoach', async function (req, res, next) {
+//   try {
+//     console.log('Retrieving coach profile ...');
+//     // not sure about the next line for using firsbase, will need to check later
+//     const userDetails = req.query;
+//     //
+//     const result = await coachLogin(userDetails);
+//     res.json({ success: true, data: result });
+//     console.log('Recieved coach profile');
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
 // What Freshta's team did on project week using firebase
 // router.get("/:uuid", async (req, res) => {
 //   const uuid = req.params.uuid;
@@ -136,3 +147,5 @@ router.get('/feedbackcoach', async function (req, res, next) {
     console.log(error.message);
   }
 });
+
+module.exports = router;
