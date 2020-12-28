@@ -7,6 +7,7 @@ const pool = new Pool({
   host: process.env.PGHOST,
   password: process.env.PGPASSWORD,
   database: process.env.PGDATABASE,
+  connectionString: process.env.DATABASE_URL,
   port: process.env.PGPORT,
   ssl: { rejectUnauthorized: false },
 });
