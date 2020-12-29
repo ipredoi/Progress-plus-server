@@ -1,7 +1,7 @@
 const { query } = require('../../index');
 
 const sqlStatement = `
-DROP TABLE users
+DROP TABLE users CASCADE
 ;`;
 
 async function dropTable() {
