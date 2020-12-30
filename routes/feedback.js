@@ -13,7 +13,6 @@ const {
 // return
 
 router.get('/', async function (req, res, next) {
-  console.log(req.query.uid);
   if (req.query.uid.length < 1) {
     try {
       console.log('retrieving all of the bootcamper feedback...');
@@ -37,10 +36,10 @@ router.get('/', async function (req, res, next) {
 router.get('/', async function (req, res, next) {
   try {
     console.log('retrieving feedback ...');
-    console.log(req.query);
+
     const feedbackRequest = {
       uid: req.query.uid,
-      type: req.query.taskType,
+      type: req.query.type,
     };
     const result = await getBootcamperFeedback(feedbackRequest);
     res.json({ success: true, data: result });
@@ -62,7 +61,6 @@ router.post('/', async function (req, res, next) {
   try {
     console.log('Posting feedback ...');
     const feedback = req.body;
-    console.log(feedback);
     const result = await postFeedback(feedback);
     res.json({ success: true, data: result });
     console.log(
