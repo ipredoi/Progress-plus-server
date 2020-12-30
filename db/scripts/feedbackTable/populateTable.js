@@ -9,7 +9,7 @@ const feedbacksArray = [
     feedbackdate: '2020-11-18',
     subject: 'react',
     week: 7,
-    tasktype: 'mastery',
+    type: 'mastery',
     quantitative: '12/15',
     qualitative: "(coach's comment)",
     duedate: '2020-11-15',
@@ -21,7 +21,7 @@ const feedbacksArray = [
     feedbackdate: '2020-12-04',
     subject: 'react',
     week: 9,
-    tasktype: 'mastery',
+    type: 'mastery',
     quantitative: '17/18',
     qualitative: "(coach's comment)",
     duedate: '2020-12-02',
@@ -33,7 +33,7 @@ const feedbacksArray = [
     feedbackdate: '2020-11-18',
     subject: 'react',
     week: 7,
-    tasktype: 'mastery',
+    type: 'mastery',
     quantitative: '13/15',
     qualitative: "(coach's comment)",
     duedate: '2020-11-15',
@@ -45,7 +45,7 @@ const feedbacksArray = [
     feedbackdate: '2020-12-04',
     subject: 'css',
     week: 9,
-    tasktype: 'mastery',
+    type: 'mastery',
     quantitative: '18/18',
     qualitative: "(coach's comment)",
     duedate: '2020-12-02',
@@ -57,7 +57,7 @@ const feedbacksArray = [
     feedbackdate: '2020-12-05',
     subject: 'css',
     week: 9,
-    tasktype: 'mastery',
+    type: 'mastery',
     quantitative: '18/18',
     qualitative: "(coach's comment)",
     duedate: '2020-12-02',
@@ -67,7 +67,7 @@ const feedbacksArray = [
 
 const sqlStatement = `
     INSERT INTO feedback
-        (bootcamperuid, coachname, feedbackdate, subject, week, tasktype, quantitative, qualitative, duedate, datesubmitted)
+        (bootcamperuid, coachname, feedbackdate, subject, week, type, quantitative, qualitative, duedate, datesubmitted)
     VALUES
         ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
 ;`;

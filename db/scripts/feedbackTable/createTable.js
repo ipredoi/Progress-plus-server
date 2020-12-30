@@ -7,7 +7,7 @@ const sqlStatement = `CREATE TABLE feedback(
     feedbackdate DATE,
     subject TEXT,
     week INT,
-    tasktype TEXT,
+    type TEXT,
     quantitative TEXT,
     qualitative TEXT,
     duedate DATE,

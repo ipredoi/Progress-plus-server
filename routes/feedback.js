@@ -13,7 +13,7 @@ const {
 // return
 
 router.get('/', async function (req, res, next) {
-  if (req.query.uid.length < 1) {
+  if (req.query.uid === undefined) {
     try {
       console.log('retrieving all of the bootcamper feedback...');
       const result = await getAllFeedback();
@@ -30,8 +30,8 @@ router.get('/', async function (req, res, next) {
 // 2. Need individual feedback through GET request - displayed through different tasks by one GET request.
 
 // This is the bootcamper viewing the different types of feedback in different pages.
-// expects a request to /feedback with uid and taskType in the params separated by a /.
-// returns all the data in the table for the corresponding user of the specified taskType. (mastery/recap)
+// expects a request to /feedback with uid and type in the params separated by a /.
+// returns all the data in the table for the corresponding user of the specified type. (mastery/recap)
 
 router.get('/', async function (req, res, next) {
   try {
@@ -54,7 +54,7 @@ router.get('/', async function (req, res, next) {
 // 3. POST request to send bootcamper feedback
 
 // the coaches sending bootcampers feedback to the database
-// expecting json with keys of bootcamperuid, coachName, dateSubmitted, subject, week, taskType, quantitative, qualitative, dueDate and dateSubmitted.
+// expecting json with keys of bootcamperuid, coachName, dateSubmitted, subject, week, type, quantitative, qualitative, dueDate and dateSubmitted.
 // returns the data in the same format if needed.
 
 router.post('/', async function (req, res, next) {
