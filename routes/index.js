@@ -1,13 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {
-  createBootcamperProfile,
-  bootcamperLogin,
-  getBootcamperFeedback,
-  getAllFeedback,
-  postFeedback,
-} = require('../models/index');
+const { createBootcamperProfile, bootcamperLogin } = require('../models/index');
 
 // Bootcamper routes
 
@@ -24,66 +18,6 @@ router.post('/', async function (req, res, next) {
     const result = await createBootcamperProfile(profile);
     res.json({ success: true, data: result });
     console.log(`Bootcamper profile created with uid = ${result[0].uid}!`);
-  } catch (error) {
-    console.log(error.message);
-  }
-});
-
-// 3. Need individual feedback through GET request - displayed through different tasks by one GET request.
-
-// This is the bootcamper viewing the different types of feedback in different pages.
-// expects a request to /feedback with uid and taskType in the params separated by a /.
-// returns all the data in the table for the corresponding user of the specified taskType. (mastery/recap)
-
-router.get('/feedback', async function (req, res, next) {
-  try {
-    console.log('retrieving feedback ...');
-    const feedbackRequest = {
-      uid: req.query.uid,
-      type: req.query.taskType,
-    };
-    const result = await getBootcamperFeedback(feedbackRequest);
-    res.json({ success: true, data: result });
-    console.log(
-      `feedback retrieved for user with uid =${result[0].bootcamperuid}`
-    );
-  } catch (error) {
-    console.log(error.message);
-  }
-});
-
-// 3. POST request to send bootcamper feedback
-
-// the coaches sending bootcampers feedback to the database
-// expecting json with keys of bootcamperuid, coachName, dateSubmitted, subject, week, taskType, quantitative, qualitative, dueDate and dateSubmitted.
-// returns the data in the same format if needed.
-
-router.post('/feedback', async function (req, res, next) {
-  try {
-    console.log('Posting feedback ...');
-    const feedback = req.body;
-
-    const result = await postFeedback(feedback);
-    res.json({ success: true, data: result });
-    console.log(
-      `Feedback posted for user with uid = ${result[0].bootcamperuid}`
-    );
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-// 4. GET requests to view the bootcamper feedback
-
-// request from the coaches to view all of the bootcamper data
-// return
-
-router.get('/allbootcamperfeedback', async function (req, res, next) {
-  try {
-    console.log('retrieving all of the bootcamper feedback...');
-    const result = await getAllFeedback();
-    res.json({ success: true, data: result });
-    console.log('all of the feedback retrieved');
   } catch (error) {
     console.log(error.message);
   }

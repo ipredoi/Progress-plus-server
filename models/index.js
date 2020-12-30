@@ -19,6 +19,7 @@ async function bootcamperLogin(uid) {
 // 3. Need individual feedback through GET request - displayed through different tasks by one GET request.
 
 async function getBootcamperFeedback(profile) {
+  console.log(profile);
   const result = await query(
     `SELECT * FROM feedback WHERE bootcamperUid = $1 AND taskType = $2`,
     [profile.uid, profile.type]
@@ -29,19 +30,20 @@ async function getBootcamperFeedback(profile) {
 // 4. the coaches sending bootcampers feedback to the database
 
 async function postFeedback(feedback) {
+  console.log(feedback);
   const result = await query(
     `INSERT INTO feedback(bootcamperUid, coachName, feedbackDate, subject, week, taskType, quantitative, qualitative, dueDate, dateSubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING * `,
     [
-      feedback.bootcamperUid,
-      feedback.coachName,
-      feedback.dateSubmitted,
+      feedback.bootcamperuid,
+      feedback.coachname,
+      feedback.datesubmitted,
       feedback.subject,
       feedback.week,
-      feedback.taskType,
+      feedback.tasktype,
       feedback.quantitative,
       feedback.qualitative,
-      feedback.dueDate,
-      feedback.dateSubmitted,
+      feedback.duedate,
+      feedback.datesubmitted,
     ]
   );
   return result.rows;
