@@ -1,7 +1,8 @@
 const { query } = require('../../index');
 
 const sqlStatement = `CREATE TABLE users(
-    uuid TEXT PRIMARY KEY,
+    uid TEXT PRIMARY KEY,
+    name TEXT,
     role TEXT,
     cohort INT
 );`;

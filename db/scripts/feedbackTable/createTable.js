@@ -2,7 +2,7 @@ const { query } = require('../../index');
 
 const sqlStatement = `CREATE TABLE feedback(
     feedbackId SERIAL PRIMARY KEY,
-    bootcamperUuid TEXT ,
+    bootcamperUid TEXT ,
     coachName TEXT,
     feedbackDate DATE,
     subject TEXT,
@@ -12,7 +12,7 @@ const sqlStatement = `CREATE TABLE feedback(
     qualitative TEXT,
     dueDate DATE,
     dateSubmitted DATE,
-    FOREIGN KEY (bootcamperUuid) REFERENCES users(uuid) ON DELETE CASCADE
+    FOREIGN KEY (bootcamperUid) REFERENCES users(uid) ON DELETE CASCADE
 );`;
 // foreign key links the tables together for better search functionality. this will allow us to find all feedback from a specific cohort etc for mlp.
 async function createTable() {

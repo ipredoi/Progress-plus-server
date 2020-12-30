@@ -4,7 +4,7 @@ const { query } = require('../../index');
 
 const feedbacksArray = [
   {
-    bootcamperUuid: 'd6587569589dk3r437890584gjfni',
+    bootcamperUid: 'd6587569589dk3r437890584gjfni',
     coachName: 'Tao',
     feedbackDate: '2020-11-18',
     subject: 'react',
@@ -16,7 +16,7 @@ const feedbacksArray = [
     dateSubmitted: '2020-11-15',
   },
   {
-    bootcamperUuid: 'd6587569589dk3r437890584gjfni',
+    bootcamperUid: 'd6587569589dk3r437890584gjfni',
     coachName: 'Ben',
     feedbackDate: '2020-12-04',
     subject: 'react',
@@ -28,7 +28,7 @@ const feedbacksArray = [
     dateSubmitted: '2020-12-01',
   },
   {
-    bootcamperUuid: 'd6587969589dk3r437882cbr43298',
+    bootcamperUid: 'd6587969589dk3r437882cbr43298',
     coachName: 'Liz',
     feedbackDate: '2020-11-18',
     subject: 'react',
@@ -40,7 +40,7 @@ const feedbacksArray = [
     dateSubmitted: '2020-11-15',
   },
   {
-    bootcamperUuid: 'd6587969589dk3r437882cbr43298',
+    bootcamperUid: 'd6587969589dk3r437882cbr43298',
     coachName: 'James',
     feedbackDate: '2020-12-04',
     subject: 'css',
@@ -52,7 +52,7 @@ const feedbacksArray = [
     dateSubmitted: '2020-12-01',
   },
   {
-    bootcamperUuid: 'd658756956bd37r43788hjtrertrt',
+    bootcamperUid: 'd658756956bd37r43788hjtrertrt',
     coachName: 'Mell',
     feedbackDate: '2020-12-05',
     subject: 'css',
@@ -67,7 +67,7 @@ const feedbacksArray = [
 
 const sqlStatement = `
     INSERT INTO feedback
-        (bootcamperUuid, coachName, feedbackDate, subject, week, taskType, quantitative, qualitative, dueDate, dateSubmitted)
+        (bootcamperUid, coachName, feedbackDate, subject, week, taskType, quantitative, qualitative, dueDate, dateSubmitted)
     VALUES
         ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
 ;`;
