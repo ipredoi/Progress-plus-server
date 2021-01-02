@@ -21,6 +21,7 @@ router.get('/', async function (req, res, next) {
       console.log('all of the feedback retrieved');
     } catch (error) {
       console.log(error.message);
+      res.json({ success: false, data: error.message });
     }
   } else {
     next();
