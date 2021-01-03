@@ -57,10 +57,18 @@ async function getAllFeedback() {
   return result.rows;
 }
 
+// 6. The coaches getting all the names for selecting in drop down list when submitting feedback forms.
+
+async function selectAllUsers() {
+  const result = await query(`SELECT * FROM users ;`);
+  return result.rows;
+}
+
 module.exports = {
   createBootcamperProfile,
   bootcamperLogin,
   getBootcamperFeedback,
   postFeedback,
   getAllFeedback,
+  selectAllUsers,
 };
