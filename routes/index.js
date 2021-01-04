@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   createBootcamperProfile,
   bootcamperLogin,
-  selectAllUsers,
+  selectAllBootcampers,
 } = require('../models/index');
 
 // Bootcamper routes
@@ -32,7 +32,7 @@ router.post('/', async function (req, res, next) {
 router.get('/', async function (req, res, next) {
   try {
     console.log('Retrieving all profiles ...');
-    const result = await selectAllUsers();
+    const result = await selectAllBootcampers();
     res.json({ success: true, data: result });
     console.log(`Recieved all profiles`);
   } catch (error) {

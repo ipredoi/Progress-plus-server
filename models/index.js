@@ -58,10 +58,12 @@ async function getAllFeedback() {
   return result.rows;
 }
 
-// 6. The coaches getting all the names for selecting in drop down list when submitting feedback forms.
+// 6. The coaches getting all the bootcampers names for selecting in drop down list when submitting feedback forms.
 
-async function selectAllUsers() {
-  const result = await query(`SELECT * FROM users ;`);
+async function selectAllBootcampers() {
+  const result = await query(
+    `SELECT * FROM users WHERE role iLIKE '%Bootcamper%' ORDER BY name ;` // iLike matches case insensitive for bootcampers
+  );
   return result.rows;
 }
 
@@ -71,5 +73,5 @@ module.exports = {
   getBootcamperFeedback,
   postFeedback,
   getAllFeedback,
-  selectAllUsers,
+  selectAllBootcampers,
 };
