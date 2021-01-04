@@ -62,6 +62,7 @@ router.post('/', async function (req, res, next) {
   try {
     console.log('Posting feedback ...');
     const feedback = req.body;
+    console.log(feedback);
     const result = await postFeedback(feedback);
     res.json({ success: true, data: result });
     console.log(
