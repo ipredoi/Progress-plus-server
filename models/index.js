@@ -30,12 +30,13 @@ async function getBootcamperFeedback(profile) {
 // 4. the coaches sending bootcampers feedback to the database
 
 async function postFeedback(feedback) {
+  console.log(feedback);
   const result = await query(
     `INSERT INTO feedback(bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING * `,
     [
       feedback.bootcamperuid,
       feedback.coachname,
-      feedback.datesubmitted,
+      feedback.feedbackdate,
       feedback.subject,
       feedback.week,
       feedback.type,
@@ -58,10 +59,12 @@ async function getAllFeedback() {
   return result.rows;
 }
 
-// 6. The coaches getting all the names for selecting in drop down list when submitting feedback forms.
+// 6. The coaches getting all the bootcampers names for selecting in drop down list when submitting feedback forms.
 
-async function selectAllUsers() {
-  const result = await query(`SELECT * FROM users ;`);
+async function selectAllBootcampers() {
+  const result = await query(
+    `SELECT * FROM users WHERE role iLIKE '%Bootcamper%' ORDER BY name ;` // iLike matches case insensitive for bootcampers
+  );
   return result.rows;
 }
 
@@ -71,5 +74,5 @@ module.exports = {
   getBootcamperFeedback,
   postFeedback,
   getAllFeedback,
-  selectAllUsers,
+  selectAllBootcampers,
 };
