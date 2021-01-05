@@ -31,7 +31,7 @@ async function getBootcamperFeedback(profile) {
 
 async function postFeedback(feedback) {
   const result = await query(
-    `INSERT INTO feedback(bootcamperuid, coachname, feedbackdate, subject, week, type, quantitative, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING * `,
+    `INSERT INTO feedback(bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING * `,
     [
       feedback.bootcamperuid,
       feedback.coachname,
@@ -39,7 +39,8 @@ async function postFeedback(feedback) {
       feedback.subject,
       feedback.week,
       feedback.type,
-      feedback.quantitative,
+      feedback.passedtests,
+      feedback.totaltests,
       feedback.qualitative,
       feedback.duedate,
       feedback.datesubmitted,
