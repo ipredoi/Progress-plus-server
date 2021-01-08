@@ -248,7 +248,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'css, HTML',
       week: 9,
-      type: 'express',
+      type: 'recap',
       passedtests: 10,
       totaltests: 10,
       qualitative: "Wow, you've really impressed me here with your back end!",

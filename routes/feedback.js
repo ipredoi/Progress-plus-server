@@ -79,8 +79,8 @@ router.post('/', async function (req, res, next) {
 router.post('/data', async function (req, res, next) {
   try {
     console.log('populating data ...');
-    const { uid } = req.body;
-    console.log(req.body);
+    const uid = req.body.uid;
+    console.log(uid);
     const result = await populateDemoData(uid);
     res.json({ success: true, data: result });
     console.log(`Demo data populated for user with uid = ${uid}`);
