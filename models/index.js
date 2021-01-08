@@ -1,3 +1,4 @@
+const { demoData } = require('./demoData');
 const { query } = require('../db/index');
 
 // Bootcamper routes
@@ -68,6 +69,43 @@ async function selectAllBootcampers() {
   return result.rows;
 }
 
+async function populateDemoData(uid) {
+  const feedbacksArray = demoData(uid);
+  let result = [];
+  return feedbacksArray.map(async (object) => {
+    const temp = await query(
+      `INSERT INTO feedback(bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10,$11) RETURNING * `,
+      [
+        object.bootcamperuid,
+        object.coachname,
+        object.objectdate,
+        object.subject,
+        object.week,
+        object.type,
+        object.passedtests,
+        object.totaltests,
+        object.qualitative,
+        object.duedate,
+        object.datesubmitted,
+      ]
+    );
+    return [...result, temp];
+  });
+  //   const sqlStatement = `
+  //     INSERT INTO feedback
+  //         (bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted)
+  //     VALUES
+  //         ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+  // ;`;
+  // const feedbacksArray = demoData(uid);
+  // for (const feedback of feedbacksArray) {
+  //   feedbackDataArray = Object.values(feedback);
+  //   await query(sqlStatement, feedbackDataArray);
+  //   ()
+  // }
+  // console.log('made it');
+}
+
 module.exports = {
   createBootcamperProfile,
   bootcamperLogin,
@@ -75,4 +113,5 @@ module.exports = {
   postFeedback,
   getAllFeedback,
   selectAllBootcampers,
+  populateDemoData,
 };

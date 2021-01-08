@@ -5,6 +5,7 @@ const {
   getBootcamperFeedback,
   getAllFeedback,
   postFeedback,
+  populateDemoData,
 } = require('../models/index');
 
 // 1. GET requests to view the bootcamper feedback
@@ -70,6 +71,21 @@ router.post('/', async function (req, res, next) {
     );
   } catch (err) {
     console.log(err.message);
+  }
+});
+
+//Needs refactoring!!
+
+router.post('/data', async function (req, res, next) {
+  try {
+    console.log('populating data ...');
+    const { uid } = req.body;
+    console.log(req.body);
+    const result = await populateDemoData(uid);
+    res.json({ success: true, data: result });
+    console.log(`Demo data populated for user with uid = ${uid}`);
+  } catch (err) {
+    res.json({ success: false, data: err });
   }
 });
 
