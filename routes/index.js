@@ -20,6 +20,9 @@ router.post('/', async function (req, res, next) {
     console.log('Creating a bootcamper profile...');
     const profile = req.body;
     const result = await createBootcamperProfile(profile);
+    if (profile.role === bootcamper) {
+      populateDemoData(profile.uid);
+    }
     res.json({ success: true, data: result });
     console.log(`Bootcamper profile created with uid = ${result[0].uid}!`);
   } catch (error) {
