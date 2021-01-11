@@ -5,6 +5,7 @@ const {
   createBootcamperProfile,
   bootcamperLogin,
   selectAllBootcampers,
+  populateDemoData,
 } = require('../models/index');
 
 // Bootcamper routes
@@ -20,7 +21,7 @@ router.post('/', async function (req, res, next) {
     console.log('Creating a bootcamper profile...');
     const profile = req.body;
     const result = await createBootcamperProfile(profile);
-    if (profile.role === bootcamper) {
+    if (profile.role === 'Bootcamper') {
       populateDemoData(profile.uid);
     }
     res.json({ success: true, data: result });
