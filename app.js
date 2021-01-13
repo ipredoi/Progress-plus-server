@@ -5,10 +5,19 @@ var cookieParser = require('cookie-parser');
 let cors = require('cors');
 var logger = require('morgan');
 
+require('dotenv').config();
+// var firebase = require('firebase-admin');
+// var serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
 var indexRouter = require('./routes/index');
 var feedbackRouter = require('./routes/feedback');
 
 var app = express();
+
+// const firebaseApp = firebase.initializeApp({
+//   credential: firebase.credential.cert(serviceAccount),
+//   databaseURL: process.env.databaseURL,
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,4 +48,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = { app };
