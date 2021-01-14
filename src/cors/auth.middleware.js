@@ -2,8 +2,13 @@
 var firebase = require('firebase-admin');
 var serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
+//prettier-ignore
 const firebaseApp = firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
+  credential: firebase.credential.cert({
+    "project_id": process.env.FIREBASE_PROJECT_ID,
+    "client_email": process.env.FIREBASE_CLIENT_EMAIL,
+    "private_key": process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  }),
   databaseURL: process.env.databaseURL,
 });
 
