@@ -93,15 +93,22 @@ router.post('/data', checkIfAuthenticated, async function (req, res, next) {
 });
 
 //Patch req
-router.patch('/:feedbackid', async function (req, res, next) {
-  try {
-    console.log('feedback updating...');
-    const result = await updateFeedback(req.params.feedbackid, req.body);
-    res.json({ success: true, data: result });
-    console.log('feedback is updated');
-  } catch (err) {
-    res.json({ success: false, data: err.message });
+router.patch(
+  '/:feedbackid',
+  checkIfAuthenticated,
+  async function (req, res, next) {
+    try {
+      // console.log('feedback updating...');
+      console.log(req.body);
+      const { feedbackid } = req.params;
+      const { body } = req;
+      const result = await updateFeedback(feedbackid, body);
+      res.json({ success: true, data: result });
+      //console.log('feedback is updated');
+    } catch (err) {
+      res.json({ success: false, data: err.message });
+    }
   }
-});
+);
 
 module.exports = router;
