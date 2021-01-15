@@ -108,25 +108,23 @@ async function populateDemoData(uid) {
 }
 
 //Updating feedback in table. Patch request for edit button.
-async function updateFeedback(feedback) {
+async function updateFeedback(feedback, id) {
   console.log(feedback);
   const result = await query(
-    `UPDATE feedback SET (bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING * `,
+    `UPDATE feedback SET (bootcamperuid, coachname, feedbackdate, subject, week, type, passedtests, totaltests, qualitative, duedate, datesubmitted) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10,$11) WHERE feedbackid = $12 RETURNING *;`,
     [
-      [
-        feedback.bootcamperuid,
-        feedback.coachname,
-        feedback.feedbackdate,
-        feedback.subject,
-        feedback.week,
-        feedback.type,
-        feedback.passedtests,
-        feedback.totaltests,
-        feedback.qualitative,
-        feedback.duedate,
-        feedback.datesubmitted,
-      ],
-      feedbackid,
+      feedback.bootcamperuid,
+      feedback.coachname,
+      feedback.feedbackdate,
+      feedback.subject,
+      feedback.week,
+      feedback.type,
+      feedback.passedtests,
+      feedback.totaltests,
+      feedback.qualitative,
+      feedback.duedate,
+      feedback.datesubmitted,
+      feedback.feedbackid,
     ]
   );
   console.log(result.rows);
@@ -141,4 +139,5 @@ module.exports = {
   getAllFeedback,
   selectAllBootcampers,
   populateDemoData,
+  updateFeedback,
 };

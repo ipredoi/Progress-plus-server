@@ -6,6 +6,7 @@ const {
   getAllFeedback,
   postFeedback,
   populateDemoData,
+  updateFeedback,
 } = require('../models/index');
 
 var { checkIfAuthenticated } = require('../src/cors/auth.middleware');
