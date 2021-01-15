@@ -8,12 +8,14 @@ const {
   populateDemoData,
 } = require('../models/index');
 
+var { checkIfAuthenticated } = require('../src/cors/auth.middleware');
+
 // 1. GET requests to view the bootcamper feedback
 
 // request from the coaches to view all of the bootcamper data
 // return
 
-router.get('/', async function (req, res, next) {
+router.get('/', checkIfAuthenticated, async function (req, res, next) {
   if (req.query.uid === undefined) {
     try {
       console.log('retrieving all of the bootcamper feedback...');
@@ -35,7 +37,7 @@ router.get('/', async function (req, res, next) {
 // expects a request to /feedback with uid and type in the params separated by a /.
 // returns all the data in the table for the corresponding user of the specified type. (mastery/recap)
 
-router.get('/', async function (req, res, next) {
+router.get('/', checkIfAuthenticated, async function (req, res, next) {
   try {
     console.log('retrieving feedback ...');
 
@@ -59,7 +61,7 @@ router.get('/', async function (req, res, next) {
 // expecting json with keys of bootcamperuid, coachName, dateSubmitted, subject, week, type, quantitative, qualitative, dueDate and dateSubmitted.
 // returns the data in the same format if needed.
 
-router.post('/', async function (req, res, next) {
+router.post('/', checkIfAuthenticated, async function (req, res, next) {
   try {
     console.log('Posting feedback ...');
     const feedback = req.body;
@@ -76,7 +78,7 @@ router.post('/', async function (req, res, next) {
 
 //Needs refactoring!!
 
-router.post('/data', async function (req, res, next) {
+router.post('/data', checkIfAuthenticated, async function (req, res, next) {
   try {
     console.log('populating data ...');
     const uid = req.body.uid;

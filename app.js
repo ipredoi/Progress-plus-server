@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 let cors = require('cors');
 var logger = require('morgan');
 
+require('dotenv').config();
+
 var indexRouter = require('./routes/index');
 var feedbackRouter = require('./routes/feedback');
 
@@ -39,4 +41,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = { app };
