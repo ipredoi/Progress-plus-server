@@ -89,4 +89,16 @@ router.post('/data', async function (req, res, next) {
   }
 });
 
+//Patch req
+router.patch('/:feedbackid', async function (req, res, next) {
+  try {
+    console.log('feedback updating...');
+    const result = await updateFeedback(req.params.feedbackid, req.body);
+    res.json({ success: true, data: result });
+    console.log('feedback is updated');
+  } catch (err) {
+    res.json({ success: false, data: err.message });
+  }
+});
+
 module.exports = router;
