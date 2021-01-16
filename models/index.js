@@ -79,7 +79,7 @@ async function populateDemoData(uid) {
       [
         object.bootcamperuid,
         object.coachname,
-        object.objectdate,
+        object.feedbackdate,
         object.subject,
         object.week,
         object.type,
@@ -127,7 +127,7 @@ async function updateFeedback(feedbackId, feedback) {
     duedate,
     datesubmitted,
   ]);
- // console.log(result);
+  // console.log(result);
   return result.rows[0];
 }
 

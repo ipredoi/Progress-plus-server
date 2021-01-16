@@ -6,7 +6,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'React',
       week: 1,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 9,
       totaltests: 10,
       qualitative:
@@ -20,7 +20,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'JavaScript',
       week: 2,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 4,
       totaltests: 10,
       qualitative:
@@ -34,7 +34,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'CSS',
       week: 3,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 10,
       totaltests: 10,
       qualitative:
@@ -48,7 +48,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'Node.js',
       week: 4,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 6,
       totaltests: 10,
       qualitative:
@@ -62,7 +62,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-05',
       subject: 'HTML',
       week: 5,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 8,
       totaltests: 10,
       qualitative:
@@ -76,7 +76,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'Next.js',
       week: 6,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 4,
       totaltests: 10,
       qualitative:
@@ -90,7 +90,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'React',
       week: 7,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 5,
       totaltests: 10,
       qualitative:
@@ -104,7 +104,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'Array Methods',
       week: 8,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 9,
       totaltests: 10,
       qualitative:
@@ -118,7 +118,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'Gatsby',
       week: 9,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 5,
       totaltests: 10,
       qualitative:
@@ -132,7 +132,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-05',
       subject: 'SQL',
       week: 10,
-      type: 'Mastery',
+      type: 'mastery',
       passedtests: 10,
       totaltests: 10,
       qualitative: 'Your SQL knowledge is amazing! Keep it up.',
@@ -200,7 +200,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-05',
       subject: 'SQL',
       week: 5,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 3,
       totaltests: 10,
       qualitative:
@@ -214,7 +214,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'Serverless',
       week: 6,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 8,
       totaltests: 10,
       qualitative:
@@ -228,7 +228,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'useContext',
       week: 7,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 10,
       totaltests: 10,
       qualitative:
@@ -242,7 +242,7 @@ function demoData(uid) {
       feedbackdate: '2020-11-18',
       subject: 'React Hooks',
       week: 8,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 8,
       totaltests: 10,
       qualitative:
@@ -256,7 +256,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-04',
       subject: 'Express.js',
       week: 9,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 10,
       totaltests: 10,
       qualitative:
@@ -270,7 +270,7 @@ function demoData(uid) {
       feedbackdate: '2020-12-05',
       subject: 'JavaScript',
       week: 10,
-      type: 'Recap',
+      type: 'recap',
       passedtests: 1,
       totaltests: 10,
       qualitative:

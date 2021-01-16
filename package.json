@@ -12,7 +12,8 @@
     "createFeedbackTable": "node -r dotenv/config db/scripts/feedbackTable/createTable.js",
     "readFeedbackTable": "node -r dotenv/config db/scripts/feedbackTable/readTable.js",
     "populateFeedbackTable": "node -r dotenv/config db/scripts/feedbackTable/populateTable.js",
-    "newFeedbackTable": "npm run dropFeedbackTable & npm run createFeedbackTable & npm run populateFeedbackTable"
+    "newFeedbackTable": "npm run dropFeedbackTable & npm run createFeedbackTable ",
+    "newUserTable": "npm run dropUserTable & npm run createUserTable "
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
