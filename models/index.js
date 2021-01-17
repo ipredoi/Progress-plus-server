@@ -22,7 +22,7 @@ async function bootcamperLogin(uid) {
 async function getBootcamperFeedback(profile) {
   console.log(profile);
   const result = await query(
-    `SELECT * FROM feedback WHERE bootcamperuid = $1 AND type = $2`,
+    `SELECT * FROM users INNER JOIN feedback ON (users.uid = feedback.bootcamperuid) WHERE uid = $1 AND type = $2`,
     [profile.uid, profile.type]
   );
   return result.rows;
