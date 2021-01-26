@@ -8,7 +8,9 @@ const {
   populateDemoData,
 } = require('../models/index');
 
-var { checkIfAuthenticated } = require('../src/cors/auth.middleware');
+var {
+  checkIfAuthenticated,
+} = require('../controllers/middleware/auth.middleware');
 
 // Bootcamper routes
 

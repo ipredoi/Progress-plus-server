@@ -9,7 +9,9 @@ const {
   updateFeedback,
 } = require('../models/index');
 
-var { checkIfAuthenticated } = require('../src/cors/auth.middleware');
+var {
+  checkIfAuthenticated,
+} = require('../controllers/middleware/auth.middleware');
 
 // 1. GET requests to view the bootcamper feedback
 

@@ -1,8 +1,8 @@
 // Import Firebase Admin initialized instance to middleware
 var firebase = require('firebase-admin');
-var serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
 //prettier-ignore
+//initialises Firebase with credentials in .env file
 const firebaseApp = firebase.initializeApp({
   credential: firebase.credential.cert({
     "project_id": process.env.FIREBASE_PROJECT_ID,
@@ -12,6 +12,7 @@ const firebaseApp = firebase.initializeApp({
   databaseURL: process.env.databaseURL,
 });
 
+//function to extract auth token from request headers & make readable
 const getAuthToken = (req, res, next) => {
   if (
     req.headers.authorization &&
@@ -24,11 +25,12 @@ const getAuthToken = (req, res, next) => {
   next();
 };
 
+//function to check if user is authenticated using Firebase & if so allow them to make requests
 const checkIfAuthenticated = (req, res, next) => {
   getAuthToken(req, res, async () => {
     try {
       const { authToken } = req;
-      console.log({ firebaseApp });
+      console.log({ authToken });
       const userInfo = await firebaseApp.auth().verifyIdToken(authToken);
       console.log('hello');
       req.authId = userInfo.uid;
