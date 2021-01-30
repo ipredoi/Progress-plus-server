@@ -1,25 +1,34 @@
-### ---- Routes ----
+# Progress Plus Application
 
-# GET to /feedback
+This was made by the combined efforts of **Charlie Chandler**, **Freshta Ebrahim**, **Hajoo Chung**, **Ionut Predoi**, **Ismail Ali** and **Patrick Fleming**.
 
-Returns to successful requestsin the from:
-{success: true,
-data: [{"uid": "d6587569589dk3r437890584gjfni",
-"name": "Stefan",
-"role": "Bootcamper",
-"cohort": 4,
-"feedbackid": 1,
-"bootcamperuid": "d6587569589dk3r437890584gjfni",
-"coachname": "Tao",
-"feedbackdate": "2020-11-18T00:00:00.000Z",
-"subject": "react",
-"week": 7,
-"type": "mastery",
-"quantitative": "12/15",
-"qualitative": "(coach's comment)",
-"duedate": "2020-11-15T00:00:00.000Z",
-"datesubmitted": "2020-11-15T00:00:00.000Z"}, ... ]}
+This is a platform to allow School of Code bootcampers and coaches to track the technical progress of bootcampers.  Coaches can register, submit written feedback, and compare the progress of bootcampers and the bootcamp as a whole.  Bootcampers can register and view their scores and written feedback for the various mastery and recap tasks they complete.
 
-the elipses represent more objects with the same keys
+Here is the [deployed version](http://3.250.192.68:3000/), which is hosted in a cluster on AWS's Elastic Container Service. 
 
-Firstly checks if there is a uid query, if there is then it will execute next() and move on to the next middleware.
+You can find the client code [here](https://github.com/ipredoi/progressPlus-client).
+
+## Stack
+
+- `Node JS`
+- `Express`
+- `Firebase`
+- `Docker`
+- `Postgres`
+
+## Getting started
+
+1. Clone the repo: `git clone https://github.com/ipredoi/Progress-plus-server.git`
+
+2. Download the required npm modules: `npm i`
+
+3. Copy the contents of .env.local.example into a new file called .env.local
+
+4. Use the same  authentication credentials as in the client code [here](https://github.com/ipredoi/progressPlus-client) from the Firebase console under Project settings > General> Your app. Under Firebase SDK snippet choose Config to get the configuration as JSON. It will include keys like apiKey and authDomain. Set the appropriate environment variables in the .env file at the root of this project.
+
+5. Set up a Postrgres database and set the appropriate environment variables in the .env file at the root of this project (PGHOST,
+PGDATABASE,PGUSER,PGPORT,PGPASSWORD). 
+
+## Useful commands
+
+- `npm start` - run the server
