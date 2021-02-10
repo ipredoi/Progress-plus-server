@@ -4,7 +4,7 @@ This was made by the combined efforts of **Charlie Chandler**, **Freshta Ebrahim
 
 This is a platform to allow School of Code bootcampers and coaches to track the technical progress of bootcampers.  Coaches can register, submit written feedback, and compare the progress of bootcampers and the bootcamp as a whole.  Bootcampers can register and view their scores and written feedback for the various mastery and recap tasks they complete.
 
-Here is the [deployed version](http://3.250.192.68:3000/), which is hosted in a cluster on AWS's Elastic Container Service. 
+Here is the [deployed version](http://52.214.103.49:3000/), which is hosted in a cluster on AWS's Elastic Container Service. 
 
 You can find the client code [here](https://github.com/ipredoi/progressPlus-client).
 
